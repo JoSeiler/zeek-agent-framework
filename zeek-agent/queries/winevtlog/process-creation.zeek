@@ -124,4 +124,3 @@ event zeek_init() &priority=10
 	ZeekAgent::subscribe(query);
 	}
 
-## source, provider_name, provider_guid, computer_name, event_id, task_id, level, pid, tid, keywords, data

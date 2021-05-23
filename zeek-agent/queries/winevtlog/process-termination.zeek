@@ -1,4 +1,4 @@
-##! Logs network connection events - WEL ID: Security - 5156
+##! Logs process termination events - WEL ID: Security - 5156
 
 @load zeek-agent
 
@@ -92,12 +92,10 @@ event Agent_WELProcessTermination::process_termination(result: ZeekAgent::Result
 
 event zeek_init() &priority=10
 	{
-	Log::create_stream(LOG, [$columns=Info, $path="agent-network_conn"]);
+	Log::create_stream(LOG, [$columns=Info, $path="agent-process_termination"]);
 
 	local query = ZeekAgent::Query($ev=Agent_WELProcessTermination::process_termination,
 	                                $query="SELECT zeek_time, subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, status, process_id, process_name FROM process_termination",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}
-
-## source, provider_name, provider_guid, computer_name, event_id, task_id, level, pid, tid, keywords, data
