@@ -70,7 +70,7 @@ event zeek_init() &priority=10
 	Log::create_stream(LOG, [$columns=Info, $path="agent-network_conn"]);
 
 	local query = ZeekAgent::Query($ev=Agent_WELNetworkConn::network_conn,
-	                                $query="SELECT zeek_time, source, provider_name, provider_guid, computer_name, event_id, task_id, level, pid, tid, keywords, data FROM winsocket_events",
+	                                $query="SELECT zeek_time, source, provider_name, provider_guid, computer_name, event_id, task_id, level, pid, tid, keywords, data FROM network_conn",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}
