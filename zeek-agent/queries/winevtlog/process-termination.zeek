@@ -17,17 +17,17 @@ export {
         #date_time:     int    &log;
 
         ## System data
-		source:         string &log;
-		provider_name:  string &log;
-		provider_guid:  string &log;
-		computer_name:  string &log;
-		event_id:       int    &log;
-		task_id:        int    &log;
-		level:          int    &log;
-		pid:            int    &log;
-		tid:            int    &log;
-		keywords:       string    &log;
-		data:           string    &log;
+		#source:         string &log;
+		#provider_name:  string &log;
+		#provider_guid:  string &log;
+		#computer_name:  string &log;
+		#event_id:       int    &log;
+		#task_id:        int    &log;
+		#level:          int    &log;
+		#pid:            int    &log;
+		#tid:            int    &log;
+		#keywords:       string    &log;
+		#data:           string    &log;
 
 		## Event data
 		subject_user_id:        string  &log;
