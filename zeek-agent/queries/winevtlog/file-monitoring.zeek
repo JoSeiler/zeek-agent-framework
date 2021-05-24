@@ -103,7 +103,7 @@ event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
 	                  $access_mask = access_mask,
 	                  $process_id = process_id,
 	                  $process_name = process_name,
-	                  $resource_attributes = $resource_attributes);
+	                  $resource_attributes = resource_attributes);
 
 	Log::write(LOG, info);
 	}
