@@ -1,8 +1,8 @@
-##! Logs file monitoring events - WEL ID: Security - 4663
+##! Logs registry value modification events - WEL ID: Security - 4657
 
 @load zeek-agent
 
-module Agent_WELFileMonitoring;
+module Agent_WELRegvalModified;
 
 export {
 	redef enum Log::ID += { LOG };
@@ -34,19 +34,20 @@ export {
 		subject_user_name:      string  &log;
 		subject_domain_name:    string  &log;
 		subject_logon_id:       string  &log;
-		object_server:          string  &log;
-		object_type:            string  &log;
 		object_name:            string  &log;
+		object_value_name:      string  &log;
 		handle_id:              string  &log;
-		access_list:            string  &log;
-		access_mask:            string  &log;
+		operation_type:         string  &log;
+		old_value_type:         string  &log;
+		old_value:              string  &log;
+		new_value_type:         string  &log;
+		new_value:              string  &log;
 		process_id:             string  &log;
 		process_name:           string  &log;
-		resource_attributes:    string  &log;
 	};
 }
 
-event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
+event Agent_WELRegvalModified::regval_modified(result: ZeekAgent::Result,
                                     zeek_time: int,
                                     #date_time: int,
                                     #source: string,
@@ -64,15 +65,16 @@ event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
                                     subject_user_name: string,
                                     subject_domain_name: string,
                                     subject_logon_id: string,
-                                    object_server: string,
-                                    object_type: string,
                                     object_name: string,
+                                    object_value_name: string,
                                     handle_id: string,
-                                    access_list: string,
-                                    access_mask: string,
+                                    operation_type: string,
+                                    old_value_type: string,
+                                    old_value: string,
+                                    new_value_type: string,
+                                    new_value: string,
                                     process_id: string,
-                                    process_name: string,
-                                    resource_attributes: string)
+                                    process_name: string)
 	{
 	if ( result$utype != ZeekAgent::ADD )
 		return;
@@ -95,25 +97,26 @@ event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
 	                  $subject_user_name = subject_user_name,
 	                  $subject_domain_name = subject_domain_name,
 	                  $subject_logon_id = subject_logon_id,
-	                  $object_server = object_server,
-	                  $object_type = object_type,
 	                  $object_name = object_name,
+	                  $object_value_name = object_value_name,
 	                  $handle_id = handle_id,
-	                  $access_list = access_list,
-	                  $access_mask = access_mask,
+	                  $operation_type = operation_type,
+	                  $old_value_type = old_value_type,
+	                  $old_value = old_value,
+	                  $new_value_type = new_value_type,
+	                  $new_value = new_value,
 	                  $process_id = process_id,
-	                  $process_name = process_name,
-	                  $resource_attributes = $resource_attributes);
+	                  $process_name = process_name);
 
 	Log::write(LOG, info);
 	}
 
 event zeek_init() &priority=10
 	{
-	Log::create_stream(LOG, [$columns=Info, $path="agent-file_monitoring"]);
+	Log::create_stream(LOG, [$columns=Info, $path="agent-regval_modified"]);
 
-	local query = ZeekAgent::Query($ev=Agent_WELFileMonitoring::file_monitoring,
-	                                $query="SELECT subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_server, object_type, object_name, handle_id, access_list, access_mask, process_id, process_name, resource_attributes FROM file_monitoring",
+	local query = ZeekAgent::Query($ev=Agent_WELRegvalModified::regval_modified,
+	                                $query="SELECT subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_name, object_value_name, handle_id, operation_type, old_value_type, old_value, new_value_type, new_value, process_id, process_name FROM regval_modified",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}
