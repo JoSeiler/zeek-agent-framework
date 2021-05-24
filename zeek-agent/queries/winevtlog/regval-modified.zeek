@@ -116,7 +116,7 @@ event zeek_init() &priority=10
 	Log::create_stream(LOG, [$columns=Info, $path="agent-regval_modified"]);
 
 	local query = ZeekAgent::Query($ev=Agent_WELRegvalModified::regval_modified,
-	                                $query="SELECT subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_name, object_value_name, handle_id, operation_type, old_value_type, old_value, new_value_type, new_value, process_id, process_name FROM regval_modified",
+	                                $query="SELECT zeek_time, subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_name, object_value_name, handle_id, operation_type, old_value_type, old_value, new_value_type, new_value, process_id, process_name FROM regval_modified",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}

@@ -113,7 +113,7 @@ event zeek_init() &priority=10
 	Log::create_stream(LOG, [$columns=Info, $path="agent-file_monitoring"]);
 
 	local query = ZeekAgent::Query($ev=Agent_WELFileMonitoring::file_monitoring,
-	                                $query="SELECT subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_server, object_type, object_name, handle_id, access_list, access_mask, process_id, process_name, resource_attributes FROM file_monitoring",
+	                                $query="SELECT zeek_time, subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_server, object_type, object_name, handle_id, access_list, access_mask, process_id, process_name, resource_attributes FROM file_monitoring",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}
