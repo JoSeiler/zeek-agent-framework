@@ -1,8 +1,8 @@
-##! Logs file monitoring events - WEL ID: Security - 4663
+##! Logs object access attempts events - WEL ID: Security - 4663
 
 @load zeek-agent
 
-module Agent_WELFileMonitoring;
+module Agent_WELObjAccessAttempt;
 
 export {
 	redef enum Log::ID += { LOG };
@@ -46,7 +46,7 @@ export {
 	};
 }
 
-event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
+event Agent_WELObjAccessAttempt::objaccess_attempt(result: ZeekAgent::Result,
                                     zeek_time: int,
                                     #date_time: int,
                                     #source: string,
@@ -110,10 +110,10 @@ event Agent_WELFileMonitoring::file_monitoring(result: ZeekAgent::Result,
 
 event zeek_init() &priority=10
 	{
-	Log::create_stream(LOG, [$columns=Info, $path="agent-file_monitoring"]);
+	Log::create_stream(LOG, [$columns=Info, $path="agent-obj_access_attempt"]);
 
-	local query = ZeekAgent::Query($ev=Agent_WELFileMonitoring::file_monitoring,
-	                                $query="SELECT zeek_time, subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_server, object_type, object_name, handle_id, access_list, access_mask, process_id, process_name, resource_attributes FROM file_monitoring",
+	local query = ZeekAgent::Query($ev=Agent_WELObjAccessAttempt::objaccess_attempt,
+	                                $query="SELECT zeek_time, subject_user_id, subject_user_name, subject_domain_name, subject_logon_id, object_server, object_type, object_name, handle_id, access_list, access_mask, process_id, process_name, resource_attributes FROM obj_access_attempt",
 	                                $utype=ZeekAgent::ADD);
 	ZeekAgent::subscribe(query);
 	}
