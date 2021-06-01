@@ -147,7 +147,7 @@ event Agent_WELAccountLogon::account_logon(result: ZeekAgent::Result,
                       $elevated_token = elevated_token);
 
     if ( ip_address != "" )
-                ip_address = to_addr(ip_address);
+                info$ip_address = to_addr(ip_address);
 
 
 	Log::write(LOG, info);
