@@ -6,4 +6,4 @@
 @load ./process-termination
 @load ./obj-access-attempt
 @load ./regval-modified
-@load ./account_logon
+@load ./account-logon

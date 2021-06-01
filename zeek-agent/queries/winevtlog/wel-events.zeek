@@ -9,26 +9,25 @@ export {
 
 	type Info: record {
 	    ## General host data
-		#ts:             time   &log;
-		#host_ts:        time   &log;
-		#host:           string &log;
-		#hostname:       string &log;
+		#ts:            time   &log;
+		#host_ts:       time   &log;
+		#host:          string &log;
+		#hostname:      string &log;
 		zeek_time:      int    &log;
         #date_time:     int    &log;
 
         ## System data
-		#source:         string &log;
-		#provider_name:  string &log;
-		#provider_guid:  string &log;
-		#computer_name:  string &log;
-		#event_id:       int    &log;
-		#task_id:        int    &log;
-		#level:          int    &log;
-		#pid:            int    &log;
-		#tid:            int    &log;
-		#keywords:       string    &log;
-
-		#data:           string    &log;
+		source:        string &log;
+		provider_name: string &log;
+		provider_guid: string &log;
+		computer_name: string &log;
+		event_id:      int    &log;
+		task_id:       int    &log;
+		level:         int    &log;
+		pid:           int    &log;
+		tid:           int    &log;
+		keywords:      string &log;
+		data:          string &log;
 	};
 }
 
