@@ -1,0 +1,2 @@
+{"_path":"reporter","_write_ts":"2021-06-03T12:16:56.354887Z","ts":"2021-06-03T12:16:56.354887Z","level":"Reporter::WARNING","message":"/opt/zeek/etc/intel.dat/Input::READER_ASCII: Init: cannot open /opt/zeek/etc/intel.dat","location":""}
+{"_path":"reporter","_write_ts":"2021-06-03T12:18:27.118607Z","ts":"2021-06-03T12:18:27.118607Z","level":"Reporter::INFO","message":"received termination signal","location":""}
