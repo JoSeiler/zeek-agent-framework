@@ -1,0 +1,2 @@
+{"_path":"broker","_write_ts":"2021-06-03T12:37:02.906922Z","ts":"2021-06-03T12:37:02.906922Z","ty":"Broker::STATUS","ev":"peer-added","peer.address":"192.168.38.102","peer.bound_port":53787,"message":"handshake successful"}
+{"_path":"broker","_write_ts":"2021-06-03T12:37:44.307539Z","ts":"2021-06-03T12:37:44.307539Z","ty":"Broker::STATUS","ev":"connection-terminated","peer.address":"192.168.38.102","peer.bound_port":53787,"message":"lost remote peer"}
