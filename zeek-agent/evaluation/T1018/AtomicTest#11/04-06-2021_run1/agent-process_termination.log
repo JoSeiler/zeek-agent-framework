@@ -1,0 +1,2 @@
+{"zeek_time":1622817899,"subject_user_id":"S-1-5-21-1103636881-2866635202-1351316229-1000","subject_user_name":"vagrant","subject_domain_name":"WIN10","subject_logon_id":"0x86cdc5","status":"0x0","process_id":"0xcf8","process_name":"C:\\Windows\\System32\\HOSTNAME.EXE"}
+{"zeek_time":1622817899,"subject_user_id":"S-1-5-21-1103636881-2866635202-1351316229-1000","subject_user_name":"vagrant","subject_domain_name":"WIN10","subject_logon_id":"0x86cdc5","status":"0x0","process_id":"0x15e4","process_name":"C:\\Windows\\System32\\whoami.exe"}
