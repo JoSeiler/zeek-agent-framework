@@ -146,7 +146,7 @@ event Agent_WELAccountLogon::account_logon(result: ZeekAgent::Result,
                       $target_linked_logon_id = target_linked_logon_id,
                       $elevated_token = elevated_token);
 
-    if ( ip_address != "" )
+    if ( ip_address != "" && ip_address != "-" )
                 info$ip_address = to_addr(ip_address);
 
 

@@ -1,0 +1,4 @@
+{"ts":1622803636.131445,"level":"Reporter::WARNING","message":"/opt/zeek/etc/intel.dat/Input::READER_ASCII: Init: cannot open /opt/zeek/etc/intel.dat","location":""}
+{"ts":1622803680.001413,"level":"Reporter::ERROR","message":"failed converting string to IP address (to_addr(Agent_WELAccountLogon::ip_address) and -)","location":"/home/vagrant/projects/zeek-agent-framework//zeek-agent/queries/winevtlog/./account-logon.zeek, line 150"}
+{"ts":1622803680.001413,"level":"Reporter::ERROR","message":"failed converting string to IP address (to_addr(Agent_WELAccountLogon::ip_address) and -)","location":"/home/vagrant/projects/zeek-agent-framework//zeek-agent/queries/winevtlog/./account-logon.zeek, line 150"}
+{"ts":1622803718.259162,"level":"Reporter::INFO","message":"received termination signal","location":""}
