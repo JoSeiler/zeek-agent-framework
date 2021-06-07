@@ -1,0 +1,2 @@
+{"ts":1623078930.145366,"level":"Reporter::WARNING","message":"/opt/zeek/etc/intel.dat/Input::READER_ASCII: Init: cannot open /opt/zeek/etc/intel.dat","location":""}
+{"ts":1623078961.427705,"level":"Reporter::INFO","message":"received termination signal","location":""}

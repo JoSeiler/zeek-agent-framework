@@ -1,0 +1,2 @@
+{"ts":1623074926.073484,"ty":"Broker::STATUS","ev":"peer-added","peer.address":"192.168.38.104","peer.bound_port":59740,"message":"handshake successful"}
+{"ts":1623074951.441557,"ty":"Broker::STATUS","ev":"connection-terminated","peer.address":"192.168.38.104","peer.bound_port":59740,"message":"lost remote peer"}
