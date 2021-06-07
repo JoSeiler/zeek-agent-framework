@@ -1,0 +1,1 @@
+{"ts":1622995270.509526,"source":"host","peer":"/zeek/zeek-agent/hosts","level":"debug","message":"Subscribing to event ZeekAgent::table_logger() for query 'SELECT time, severity, message FROM zeek_logger'"}
